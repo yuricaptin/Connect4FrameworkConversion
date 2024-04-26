@@ -6,7 +6,7 @@ import DataAccess.BoardDataAccess;
 import DataObjects.BoardDataObject;
 import DomainObjects.BoardDomainObject;
 
-public class ItemModel {
+public class BoardModel {
 
     public static BoardDomainObject GetItemById(int id) {
         BoardDataObject itemData = BoardDataAccess.GetItemById(id);

@@ -1,6 +1,7 @@
 package DataObjects;
 
 import DomainObjects.GameDomainObject;
+import DomainObjects.PlayerDomainObject;
 
 public class PlayerDataObject {
     
@@ -22,7 +23,7 @@ public class PlayerDataObject {
         this.gameId = player.gameId;
     }    
 
-    public PlayerDataObject (GameDomainObject player) {
+    public PlayerDataObject (PlayerDomainObject player) {
         this.id = player.GetId();
         this.name = player.GetName();
         this.gameId = player.GetgameId();

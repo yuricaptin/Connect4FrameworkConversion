@@ -53,7 +53,8 @@ public class GameDataAccess {
         for( GameDataObject game : games) {
             if (game.id == gameToSave.id) {
                 game.name = gameToSave.name;
-                game.robotId = gameToSave.robotId;
+                game.player1Id = gameToSave.player1Id;
+                game.player2Id = gameToSave.player2Id;
             }
         }
     }

@@ -3,11 +3,11 @@ package DataAccess;
 import java.util.ArrayList;
 
 import DataObjects.BoardDataObject;
-import DataObjects.GameDataObject;
+import DataObjects.PlayerDataObject;
 
 public class PlayerDataAccess {
 
-    public static ArrayList<GameDataObject> players = new ArrayList<GameDataObject>();
+    public static ArrayList<PlayerDataObject> players = new ArrayList<PlayerDataObject>();
     private static int nextId = 0;    
 
     public PlayerDataAccess() {
@@ -15,8 +15,8 @@ public class PlayerDataAccess {
     }
 
     private void initialize() {
-        players.add(new GameDataObject(0, "zero"));
-        players.add(new GameDataObject(1, "one"));
+        players.add(new PlayerDataObject(0, "zero"));
+        players.add(new PlayerDataObject(1, "one"));
         nextId = 2;
     }
 
@@ -26,43 +26,43 @@ public class PlayerDataAccess {
         return thisId;
     }
 
-    public static ArrayList<GameDataObject> GetAllplayers() {
-        ArrayList<GameDataObject> playersList = new ArrayList<GameDataObject>();
+    public static ArrayList<PlayerDataObject> GetAllplayers() {
+        ArrayList<PlayerDataObject> playersList = new ArrayList<PlayerDataObject>();
         //Create a copy of players to return.
-        for (GameDataObject player: players) {
-            playersList.add(new GameDataObject(player));
+        for (PlayerDataObject player: players) {
+            playersList.add(new PlayerDataObject(player));
         }
         return playersList;
     }
 
-    public static GameDataObject GetplayerById(int id) {
-        for( GameDataObject player : players) {
+    public static PlayerDataObject GetplayerById(int id) {
+        for( PlayerDataObject player : players) {
             if (player.id == id) {
-                return new GameDataObject(player);
+                return new PlayerDataObject(player);
             }
         }
         return null;
     }
 
-    public static GameDataObject GetAvailableplayer() {
-        for( GameDataObject player : players) {
+    public static PlayerDataObject GetAvailableplayer() {
+        for( PlayerDataObject player : players) {
             if (player.gameId == -1) {
-                return new GameDataObject(player);
+                return new PlayerDataObject(player);
             }
         }
         return null;
     }
 
 
-    public static GameDataObject Addplayer(GameDataObject newplayer) {
+    public static PlayerDataObject Addplayer(PlayerDataObject newplayer) {
         newplayer.id = getNextId(); 
         players.add(newplayer);
         return newplayer;
     }
 
 
-    public static void Save(GameDataObject playerToSave) {
-        for( GameDataObject player : players) {
+    public static void Save(PlayerDataObject playerToSave) {
+        for( PlayerDataObject player : players) {
             if (player.id == playerToSave.id) {
                 player.name = playerToSave.name;
                 player.gameId = playerToSave.gameId;

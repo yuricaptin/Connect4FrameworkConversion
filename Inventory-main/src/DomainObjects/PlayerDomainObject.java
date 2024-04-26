@@ -3,8 +3,9 @@ package DomainObjects;
 import java.util.ArrayList;
 
 import DataObjects.GameDataObject;
+import DataObjects.PlayerDataObject;
 import Models.GameModel;
-import Models.playerModel;
+import Models.PlayerModel;
 
 public class PlayerDomainObject {
     
@@ -19,14 +20,14 @@ public class PlayerDomainObject {
         this.name = name;
     }
 
-    public PlayerDomainObject (GameDataObject player) {
+    public PlayerDomainObject (PlayerDataObject player) {
         this.id = player.id;
         this.name = player.name;
     }
 
-    public static ArrayList<PlayerDomainObject> MapList(ArrayList<GameDataObject> playerdata) {
+    public static ArrayList<PlayerDomainObject> MapList(ArrayList<PlayerDataObject> playerdata) {
         ArrayList<PlayerDomainObject> playerDomain = new ArrayList<PlayerDomainObject>();
-        for(GameDataObject player : playerdata) {
+        for(PlayerDataObject player : playerdata) {
             playerDomain.add(new PlayerDomainObject(player));
         }
         return playerDomain;
@@ -55,7 +56,7 @@ public class PlayerDomainObject {
 
     public void Setgame(int gameId) {
         this.gameId = gameId;
-        playerModel.Save(this);
+        PlayerModel.Save(this);
     }
 
 

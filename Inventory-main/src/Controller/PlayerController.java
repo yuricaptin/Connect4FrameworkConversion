@@ -12,8 +12,6 @@ import DomainObjects.PlayerDomainObject;
 import DomainObjects.GameDomainObject;
 import Models.BoardModel;
 import Models.PlayerModel;
-import Models.playerModel;
-import restService.request.OrderRequest;
 import restService.request.RegisterPlayerRequest;
 import restService.response.OrderResponse;
 import restService.response.RegisterPlayerResponse;

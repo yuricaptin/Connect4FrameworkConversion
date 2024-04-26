@@ -1,9 +1,8 @@
 import Controller.GameController;
-import Controller.OrderController;
 import Controller.PlayerController;
 import DataAccess.*;
+import DataAccess.GameDataAccess;
 import restService.request.CreateGameRequest;
-import restService.request.OrderRequest;
 import restService.request.RegisterPlayerRequest;
 import restService.response.CreateGameResponse;
 import restService.response.OrderResponse;
@@ -37,7 +36,7 @@ public class App {
     public static void initialize() {
         GameTypeDataAccess GameTypeDataAccess = new GameTypeDataAccess();
         GameDataAccess GameDataAccess = new GameDataAccess();
-        GameDataAccess GameDataAccess = new GameDataAccess();
+        //GameDataAccess GameDataAccess = new GameDataAccess();
         BoardDataAccess BoardDataAccess = new BoardDataAccess();
 
     }

@@ -3,55 +3,58 @@ package Models;
 import java.util.ArrayList;
 
 import DataAccess.BoardDataAccess;
-import DataAccess.Boart;
+import DataAccess.PlayerDataAccess;
+import DataAccess.PlayerDataAccess;
 import DataObjects.BoardDataObject;
-import DataObjects.GameDataObject;
+import DataObjects.PlayerDataObject;
+import DataObjects.PlayerDataObject;
 import DomainObjects.BoardDomainObject;
-import DomainObjects.GameDomainObject;
+import DomainObjects.PlayerDomainObject;
+import DomainObjects.PlayerDomainObject;
 
 public class PlayerModel {
 
-    public static GameDomainObject GetplayerById(int id) {
-        GameDataObject playerData = Boart.GetplayerById(id);
-        return new GameDomainObject(playerData);
+    public static PlayerDomainObject GetplayerById(int id) {
+        PlayerDataObject playerData = PlayerDataAccess.GetplayerById(id);
+        return new PlayerDomainObject(playerData);
     }
 
-    public static GameDomainObject GetAvailableplayer() {
-        GameDataObject playerData = Boart.GetAvailableplayer();
+    public static PlayerDomainObject GetAvailableplayer() {
+        PlayerDataObject playerData = PlayerDataAccess.GetAvailableplayer();
         
         if (playerData == null) {
             return null;
         }
 
-        return new GameDomainObject(playerData);
+        return new PlayerDomainObject(playerData);
     }
 
 
     
 
-    public static ArrayList<GameDomainObject> GetAllplayers() {
-        ArrayList<GameDataObject> playerDataList = Boart.GetAllplayers();
-        return GameDomainObject.MapList(playerDataList);
+    public static ArrayList<PlayerDomainObject> GetAllplayers() {
+        ArrayList<PlayerDataObject> playerDataList = PlayerDataAccess.GetAllplayers();
+        return PlayerDomainObject.MapList(playerDataList);
     }
 
-    public static GameDomainObject Addplayer(GameDomainObject player){
+    public static PlayerDomainObject Addplayer(PlayerDomainObject player){
 
         validateplayer(player);
 
-        GameDataObject playerData = new GameDataObject(player);
-        Boart.Addplayer(playerData);
-        return new GameDomainObject(playerData);
+        PlayerDataObject playerData = new PlayerDataObject(player);
+        PlayerDataAccess.Addplayer(playerData);
+        return new PlayerDomainObject(playerData);
   
     }
     
 
-    private static void validateplayer(GameDomainObject player) {
+    private static void validateplayer(PlayerDomainObject player) {
 
     }
 
-    public static void Save (GameDomainObject playerToSave) {
-        GameDataObject GameDataObject = new GameDataObject(playerToSave);
-        Boart.Save(GameDataObject);
+    public static void Save (PlayerDomainObject playerToSave) {
+        PlayerDataObject PlayerDataObject = new PlayerDataObject(playerToSave);
+        PlayerDataAccess.Save(PlayerDataObject);
     }
 
 }
