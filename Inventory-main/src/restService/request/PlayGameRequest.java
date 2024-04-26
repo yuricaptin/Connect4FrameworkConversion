@@ -1,16 +1,18 @@
 package restService.request;
 
-public class OrderRequest {
+// No Order Request Connect 4
+
+// public class OrderRequest {
 
     
-    private final int itemTypeId; 
+//     private final int itemTypeId; 
     
-    public OrderRequest (int itemTypeId) {
-        this.itemTypeId = itemTypeId;
-    }
+//     public OrderRequest (int itemTypeId) {
+//         this.itemTypeId = itemTypeId;
+//     }
 
-    public int GetItemTypeId() {
-        return this.itemTypeId;
-    }
+//     public int GetItemTypeId() {
+//         return this.itemTypeId;
+//     }
 
-}
+// }

@@ -6,6 +6,7 @@ public class PlayerDataObject {
     
     public int id;
     public String name;
+    public String username;
 
     public int gameId = -1; 
 

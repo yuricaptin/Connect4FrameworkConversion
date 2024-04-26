@@ -7,7 +7,7 @@ import DataObjects.GameTypeDataObject;
 import DomainObjects.GameTypeDomainObject;
 
 
-public class ItemTypeModel {
+public class GameTypeModel {
     public static GameTypeDomainObject GetItemTypeById(int id) {
         GameTypeDataObject itemTypeData = GameTypeDataAccess.GetItemTypeById(id);
         return new GameTypeDomainObject(itemTypeData);
