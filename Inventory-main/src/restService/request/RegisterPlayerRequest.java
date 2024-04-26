@@ -14,7 +14,7 @@ public class RegisterPlayerRequest {
     }
 
     public String GetPassword() {
-        return this.username;
+        return this.password;
     }
 
 }
