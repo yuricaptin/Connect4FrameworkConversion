@@ -4,7 +4,10 @@ import java.util.ArrayList;
 
 import DataAccess.PlayerDataAccess;
 import DataObjects.BoardDataObject;
+import DataObjects.GameDataObject;
+import DomainObjects.GameDomainObject;
 import DomainObjects.GameTypeDomainObject;
+import Models.GameModel;
 import Models.GameTypeModel;
 import Models.PlayerModel;
 //import Models.GameTypeModel;
@@ -70,6 +73,8 @@ public class GameController {
             if(GameTypeModel.GetItemTypeById(gameTypeId) == null){
                 throw new Exception ("Game Type does not exist");
             }
+
+            GameModel.Addgame(new GameDomainObject(new GameDataObject(0,gameTypeId)));
 
             CreateGameResponse response = new CreateGameResponse(0, gameTypeId, player1Id, player2Id, player1Id, "Playing", -1, new BoardDataObject(0,0,0, ""));
             return response; 

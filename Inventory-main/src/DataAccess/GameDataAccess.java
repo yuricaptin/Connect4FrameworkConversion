@@ -13,8 +13,8 @@ public class GameDataAccess {
     }
 
     private void initialize() {
-        games.add(new GameDataObject(0, "A"));
-        games.add(new GameDataObject(1, "B"));
+        games.add(new GameDataObject(0, 1));
+        games.add(new GameDataObject(1, 2));
         nextId = 2;
 
     }
@@ -52,7 +52,7 @@ public class GameDataAccess {
     public static void Save(GameDataObject gameToSave) {
         for( GameDataObject game : games) {
             if (game.id == gameToSave.id) {
-                game.name = gameToSave.name;
+                game.gameTypeId = gameToSave.gameTypeId;
                 game.player1Id = gameToSave.player1Id;
                 game.player2Id = gameToSave.player2Id;
             }

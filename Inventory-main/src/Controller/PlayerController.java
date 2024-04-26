@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 
 import DataAccess.PlayerDataAccess;
 import DataObjects.BoardDataObject;
+import DataObjects.PlayerDataObject;
 import DomainObjects.BoardDomainObject;
 import DomainObjects.GameDomainObject;
 import DomainObjects.PlayerDomainObject;
@@ -83,7 +84,7 @@ public class PlayerController {
 
             // Unique
             for (int i = 0; i < PlayerDataAccess.GetAllplayers().size(); i++) {
-                if(username.equals(PlayerDataAccess.GetAllplayers().get(i).username)){
+                if(username.equals(PlayerDataAccess.GetAllplayers().get(i).name)){
                     throw new Exception ("Username is not unique.");
                 }
             }
@@ -101,7 +102,7 @@ public class PlayerController {
                 throw new Exception ("Invalid Password.");
             }            
 
-            //PlayerModel.Addplayer(null)
+            PlayerModel.Addplayer(new PlayerDomainObject(new PlayerDataObject(PlayerModel.GetAvailableplayer().GetId(), username)));
 
             RegisterPlayerResponse response = new RegisterPlayerResponse(0, username);
             return response;             

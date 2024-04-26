@@ -10,20 +10,20 @@ import Models.PlayerModel;
 public class GameDomainObject {
     
     private int id; 
-    private String name; 
+    private int gameTypeId; 
     private int player1Id;             // <---- How is this being set?
     private int player2Id; 
 
     private PlayerDomainObject player;
 
-    public GameDomainObject (int id, String name) {
+    public GameDomainObject (int id, int gameTypeId) {
         this.id = id;
-        this.name = name;
+        this.gameTypeId = gameTypeId;
     }
 
     public GameDomainObject (GameDataObject game) {
         this.id = game.id;
-        this.name = game.name;
+        this.gameTypeId = game.gameTypeId;
     }
 
     public static ArrayList<GameDomainObject> MapList(ArrayList<GameDataObject> gamedata) {
@@ -38,8 +38,8 @@ public class GameDomainObject {
         return this.id;
     }
 
-    public String GetName() {
-        return this.name;
+    public int GetGameTypeId() {
+        return this.gameTypeId;
     }
 
     public int Getplayer1Id() {

@@ -23,6 +23,7 @@ public class PlayerDomainObject {
     public PlayerDomainObject (PlayerDataObject player) {
         this.id = player.id;
         this.name = player.name;
+        this.gameId = player.gameId;
     }
 
     public static ArrayList<PlayerDomainObject> MapList(ArrayList<PlayerDataObject> playerdata) {
