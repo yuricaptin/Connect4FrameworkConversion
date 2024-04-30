@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Inventory-main",
+    "\\Inventory-main\\src",
+    "\\Inventory-main\\src\\Controller",
+    "\\Inventory-main\\src\\restService",
+    "\\Inventory-main\\src\\restService\\request",
+    "\\Inventory-main\\src\\restService\\response"
   ],
-  "SelectedNode": "\\C:\\Users\\Nored\\Source\\Repos\\Connect4FrameworkConversion",
   "PreviewInSolutionExplorer": false
 }
