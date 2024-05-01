@@ -8,20 +8,37 @@ import Models.GameTypeModel;
 import Models.GameModel;
 
 public class BoardDomainObject {
+    public enum Status {
+            FREE, TAKEN;
+
+            public static Status fromString(String statusStr){
+                if (statusStr != null){
+                    for (Status status : Status.values()){
+                        if (statusStr.equalsIgnoreCase(status.name())){
+                            return status;
+                        }
+                    }
+            }
+    }
+
+}
+
 
     public String[][] board = new String[6][7]; // empty board    
     private int id; 
     private int gameTypeId;
     private int gameId; 
-    private String status;
+    private Status status;
 
     private GameTypeDomainObject gameType; 
     private GameDomainObject game;
 
-    public BoardDomainObject (String[][] board, int id, int itemTypeId, int gameId, String status) {
+    
+
+    public BoardDomainObject (String[][] board, int id, int gameTypeId, int gameId, Status status) {
         this.board = board;
         this.id = id;
-        this.gameTypeId = itemTypeId;
+        this.gameTypeId = gameTypeId;
         this.gameId = gameId;
         this.status = status;
     }
@@ -29,7 +46,7 @@ public class BoardDomainObject {
     public BoardDomainObject (BoardDataObject board) {
         this.board = board.board;
         this.id = board.id;
-        this.gameTypeId = board.itemTypeId;
+        this.gameTypeId = board.gameTypeId;
         this.gameId = board.gameId;
         this.status = board.status;
     }
@@ -50,7 +67,7 @@ public class BoardDomainObject {
         return this.id;
     }
 
-    public int GetItemTypeId() {
+    public int GetGameTypeId() {
         return this.gameTypeId;
     }
 
@@ -58,7 +75,7 @@ public class BoardDomainObject {
         return this.gameId;
     }
 
-    public String GetStatus() {
+    public Status GetStatus() {
         return this.status;
     }
 
@@ -70,7 +87,7 @@ public class BoardDomainObject {
         return this.game;
     }
 
-    public GameTypeDomainObject GetItemType() {
+    public GameTypeDomainObject GetGameType() {
         //Lazy Load the ItemType
         if (this.gameType == null) {
             this.gameType = GameTypeModel.GetGameTypeById(gameTypeId);
