@@ -1,31 +1,30 @@
 package DataObjects;
 
 import DomainObjects.BoardDomainObject;
+import DomainObjects.BoardDomainObject.Status;
 
 public class BoardDataObject {
-    public final static String STATUS_AVAILABLE = "Available";
-    public final static String STATUS_ORDERED = "Ordered";
-
+    
     public String[][] board = new String[6][7]; // empty board
     public int id; 
-    public int itemTypeId; 
+    public int gameTypeId; 
     public int gameId;
-    public String status; 
+    public Status status; 
 
 
-    public BoardDataObject (String[][] board, int id, int itemTypeId, int gameId, String status) {
+    public BoardDataObject (String[][] board, int id, int gameTypeId, int gameId, String statusStr) {
         this.board = board;
         this.id = id;
-        this.itemTypeId = itemTypeId;
+        this.gameTypeId = gameTypeId;
         this.gameId = gameId;
-        this.status = status;
+        this.status = Status.fromString(statusStr);
     }
 
     //Copy Constructor
     public BoardDataObject(BoardDataObject board) {
         this.board = board.board;
         this.id = board.id;
-        this.itemTypeId = board.itemTypeId;
+        this.gameTypeId = board.gameTypeId;
         this.gameId = board.gameId;
         this.status = board.status;
     }  
@@ -33,8 +32,8 @@ public class BoardDataObject {
     public BoardDataObject (BoardDomainObject board) {
         this.board = board.GetBoard();
         this.id = board.GetId();
-        this.itemTypeId = board.GetItemTypeId();
+        this.gameTypeId = board.GetGameTypeId();
         this.gameId = board.GetgameId();
-        this.status = board.GetStatus();
+        this.status = Status.valueOf(board.GetStatus());
     }
 }
