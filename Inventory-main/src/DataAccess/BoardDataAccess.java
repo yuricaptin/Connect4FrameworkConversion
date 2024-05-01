@@ -2,6 +2,7 @@ package DataAccess;
 
 import java.util.ArrayList;
 import DataObjects.BoardDataObject;
+import DomainObjects.BoardDomainObject;
 
 public class BoardDataAccess {
 
@@ -13,9 +14,9 @@ public class BoardDataAccess {
     }
 
     private void initialize() {
-        items.add(new BoardDataObject(new String[6][7], 0, 0, 0, BoardDataObject.STATUS_AVAILABLE));
-        items.add(new BoardDataObject(new String[6][7], 1, 1, 1, BoardDataObject.STATUS_AVAILABLE));
-        items.add(new BoardDataObject(new String[6][7], 2, 1, 0, BoardDataObject.STATUS_AVAILABLE));
+        items.add(new BoardDataObject(new String[6][7], 0, 0, 0, BoardDataObject.STATUS_TAKEN));
+        items.add(new BoardDataObject(new String[6][7], 1, 1, 1, BoardDataObject.STATUS_TAKEN));
+        items.add(new BoardDataObject(new String[6][7], 2, 1, 0, BoardDataObject.STATUS_TAKEN));
         nextId = 3;
     }
     
@@ -23,6 +24,32 @@ public class BoardDataAccess {
         int thisId = nextId;
         nextId++;
         return thisId;
+    }
+    public static BoardDataObject getFirstAvailableBoard(){
+        for (BoardDataObject board : items){
+            if (board.getStatus() == BoardDataObject.Status.FREE){
+                return board;
+            }
+        }
+    }
+
+    public static ArrayList<BoardDataObject> getAllAvailableBoards(){
+        ArrayList<BoardDataObject> availableBoards = new ArrayList<>();
+        for (BoardDataObject board : items){
+            if (board.getStatus() == BoardDataObject.Status.FREE) {
+                availableBoards.add(board);
+            }
+        }
+        return availableBoards;
+    }
+
+    public static void setBoardStatus(int boardId, BoardDataObject.Status newStatus){
+        for (BoardDataObject board : items){
+            if (board.getId() == boardId){
+                board.setStatus(newStatus);
+                break;
+            }
+        }
     }
 
     public static ArrayList<BoardDataObject> GetAllItems() {
@@ -45,7 +72,7 @@ public class BoardDataAccess {
 
     public static BoardDataObject GetFirstAvailableByItemTypeId(int itemTypeId) {
         for( BoardDataObject item : items) {
-            if (item.itemTypeId == itemTypeId && item.status.equals(BoardDataObject.STATUS_AVAILABLE)) {
+            if (item.itemTypeId == itemTypeId && item.status.equals(BoardDataObject.STATUS_TAKEN)) {
                 return new BoardDataObject(item);
             }
         }
