@@ -8,17 +8,17 @@ import DomainObjects.GameTypeDomainObject;
 
 
 public class GameTypeModel {
-    public static GameTypeDomainObject GetItemTypeById(int id) {
+    public static GameTypeDomainObject GetGameTypeById(int id) {
         GameTypeDataObject itemTypeData = GameTypeDataAccess.GetItemTypeById(id);
         return new GameTypeDomainObject(itemTypeData);
     }
 
-    public static ArrayList<GameTypeDomainObject> GetAllItemTypes() {
+    public static ArrayList<GameTypeDomainObject> GetAllGameTypes() {
         ArrayList<GameTypeDataObject> itemTypeDataList = GameTypeDataAccess.GetAllItemTypes();
         return GameTypeDomainObject.MapList(itemTypeDataList);
     }
 
-    public static GameTypeDomainObject AddItemType(GameTypeDomainObject itemType){
+    public static GameTypeDomainObject AddGameType(GameTypeDomainObject itemType){
 
         validateItemType(itemType);
 

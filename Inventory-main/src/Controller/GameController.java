@@ -38,45 +38,22 @@ public class GameController {
             
             boolean playerCheck = false;
 
-            // Player 1 Exists
-            // for (int i = 0; i < PlayerDataAccess.GetAllplayers().size(); i++) {
-            //     if(player1Id == PlayerDataAccess.GetAllplayers().get(i).id){
-            //         playerCheck = true;
-            //     }
-            // }
-
-            // if(!playerCheck){
-            //     throw new Exception ("Player does not exist");
-            // }
-
             if(PlayerModel.GetplayerById(player1Id) == null){
                 throw new Exception ("Player does not exist");
             }
-
-            // Player 2 Exists
-            // playerCheck = false;
-            // for (int i = 0; i < PlayerDataAccess.GetAllplayers().size(); i++) {
-            //     if(player2Id == PlayerDataAccess.GetAllplayers().get(i).id){
-            //         playerCheck = true;
-            //     }
-            // }
-
-            // if(!playerCheck){
-            //     throw new Exception ("Player does not exist");
-            // }
 
             if(PlayerModel.GetplayerById(player2Id) == null){
                 throw new Exception ("Player does not exist");
             }
 
             // Game Type ID Valid
-            if(GameTypeModel.GetItemTypeById(gameTypeId) == null){
+            if(GameTypeModel.GetGameTypeById(gameTypeId) == null){
                 throw new Exception ("Game Type does not exist");
             }
 
             GameModel.Addgame(new GameDomainObject(new GameDataObject(0,gameTypeId)));
 
-            CreateGameResponse response = new CreateGameResponse(0, gameTypeId, player1Id, player2Id, player1Id, "Playing", -1, new BoardDataObject(0,0,0, ""));
+            CreateGameResponse response = new CreateGameResponse(0, gameTypeId, player1Id, player2Id, player1Id, "Playing", -1, new BoardDataObject(new String[6][7], 0,0,0, ""));
             return response; 
         } catch (Exception ex) {
             CreateGameResponse response = new CreateGameResponse(ex.getMessage());

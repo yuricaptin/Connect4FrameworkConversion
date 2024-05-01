@@ -1,6 +1,8 @@
 package Models;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import DataAccess.BoardDataAccess;
 import DataAccess.PlayerDataAccess;
@@ -10,6 +12,7 @@ import DataObjects.PlayerDataObject;
 import DataObjects.PlayerDataObject;
 import DomainObjects.BoardDomainObject;
 import DomainObjects.PlayerDomainObject;
+import restService.response.CreateGameResponse;
 import DomainObjects.PlayerDomainObject;
 
 public class PlayerModel {
@@ -49,7 +52,44 @@ public class PlayerModel {
     
 
     private static void validateplayer(PlayerDomainObject player) {
+        // Username            
+        try{
+            // Length
+            if (!(player.GetUsername().length() >= 5 && player.GetUsername().length() <= 25)){
+                throw new Exception ("Invalid Username.");
+            }
 
+            // Valid Characters
+            Pattern p = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);
+            Matcher m = p.matcher(player.GetUsername());
+            if(m.find()){
+                throw new Exception ("Invalid Username.");
+            }
+
+            // Unique
+            for (int i = 0; i < PlayerDataAccess.GetAllplayers().size(); i++) {
+                if(player.GetUsername().equals(PlayerDataAccess.GetAllplayers().get(i).username)){
+                    throw new Exception ("Username is not unique.");
+                }
+            }
+
+            // Password
+
+            // Length
+            if (!(player.GetPassword().length() >= 5 && player.GetPassword().length() <= 25)){
+                throw new Exception ("Invalid Password.");
+            }
+
+            // Valid Characters
+            m = p.matcher(player.GetPassword());
+            if(m.find()){
+                throw new Exception ("Invalid Password.");
+            }
+            } catch (Exception ex) {
+            CreateGameResponse response = new CreateGameResponse(ex.getMessage());
+            System.out.println(ex.getMessage());
+            System.exit(0);
+        }
     }
 
     public static void Save (PlayerDomainObject playerToSave) {

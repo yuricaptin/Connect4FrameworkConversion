@@ -10,19 +10,21 @@ import Models.PlayerModel;
 public class PlayerDomainObject {
     
     private int id;
-    private String name;
+    private String username;
+    private String password;
     private int gameId;
 
     private GameDomainObject game; 
 
-    public PlayerDomainObject (int id, String name) {
+    public PlayerDomainObject (int id, String username) {
         this.id = id;
-        this.name = name;
+        this.username = username;
     }
 
     public PlayerDomainObject (PlayerDataObject player) {
         this.id = player.id;
-        this.name = player.name;
+        this.username = player.username;
+        this.password = player.password;
         this.gameId = player.gameId;
     }
 
@@ -38,8 +40,12 @@ public class PlayerDomainObject {
         return this.id;
     }
 
-    public String GetName() {
-        return this.name;
+    public String GetUsername() {
+        return this.username;
+    }
+
+    public String GetPassword() {
+        return this.password;
     }
 
     public int GetgameId() {

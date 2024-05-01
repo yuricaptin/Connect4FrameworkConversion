@@ -13,9 +13,9 @@ public class BoardDataAccess {
     }
 
     private void initialize() {
-        items.add(new BoardDataObject(0, 0, 0, BoardDataObject.STATUS_AVAILABLE));
-        items.add(new BoardDataObject(1, 1, 1, BoardDataObject.STATUS_AVAILABLE));
-        items.add(new BoardDataObject(2, 1, 0, BoardDataObject.STATUS_AVAILABLE));
+        items.add(new BoardDataObject(new String[6][7], 0, 0, 0, BoardDataObject.STATUS_AVAILABLE));
+        items.add(new BoardDataObject(new String[6][7], 1, 1, 1, BoardDataObject.STATUS_AVAILABLE));
+        items.add(new BoardDataObject(new String[6][7], 2, 1, 0, BoardDataObject.STATUS_AVAILABLE));
         nextId = 3;
     }
     

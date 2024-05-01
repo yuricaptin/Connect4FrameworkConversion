@@ -84,7 +84,7 @@ public class PlayerController {
 
             // Unique
             for (int i = 0; i < PlayerDataAccess.GetAllplayers().size(); i++) {
-                if(username.equals(PlayerDataAccess.GetAllplayers().get(i).name)){
+                if(username.equals(PlayerDataAccess.GetAllplayers().get(i).username)){
                     throw new Exception ("Username is not unique.");
                 }
             }

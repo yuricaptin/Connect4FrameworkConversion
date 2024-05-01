@@ -8,27 +8,30 @@ import Models.GameTypeModel;
 import Models.GameModel;
 
 public class BoardDomainObject {
-    
+
+    public String[][] board = new String[6][7]; // empty board    
     private int id; 
-    private int itemTypeId;
+    private int gameTypeId;
     private int gameId; 
     private String status;
 
-    private GameTypeDomainObject itemType; 
+    private GameTypeDomainObject gameType; 
     private GameDomainObject game;
 
-    public BoardDomainObject (int id, int itemTypeId, int gameId, String status) {
+    public BoardDomainObject (String[][] board, int id, int itemTypeId, int gameId, String status) {
+        this.board = board;
         this.id = id;
-        this.itemTypeId = itemTypeId;
+        this.gameTypeId = itemTypeId;
         this.gameId = gameId;
         this.status = status;
     }
 
-    public BoardDomainObject (BoardDataObject item) {
-        this.id = item.id;
-        this.itemTypeId = item.itemTypeId;
-        this.gameId = item.gameId;
-        this.status = item.status;
+    public BoardDomainObject (BoardDataObject board) {
+        this.board = board.board;
+        this.id = board.id;
+        this.gameTypeId = board.itemTypeId;
+        this.gameId = board.gameId;
+        this.status = board.status;
     }
 
     public static ArrayList<BoardDomainObject> MapList(ArrayList<BoardDataObject> itemdata) {
@@ -39,12 +42,16 @@ public class BoardDomainObject {
         return itemDomain;
     }
 
+    public String[][] GetBoard() {
+        return this.board;
+    }
+
     public int GetId() {
         return this.id;
     }
 
     public int GetItemTypeId() {
-        return this.itemTypeId;
+        return this.gameTypeId;
     }
 
     public int GetgameId() {
@@ -65,10 +72,10 @@ public class BoardDomainObject {
 
     public GameTypeDomainObject GetItemType() {
         //Lazy Load the ItemType
-        if (this.itemType == null) {
-            this.itemType = GameTypeModel.GetItemTypeById(itemTypeId);
+        if (this.gameType == null) {
+            this.gameType = GameTypeModel.GetGameTypeById(gameTypeId);
         }
-        return this.itemType;
+        return this.gameType;
     }
 
 

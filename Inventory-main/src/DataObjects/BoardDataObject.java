@@ -6,14 +6,15 @@ public class BoardDataObject {
     public final static String STATUS_AVAILABLE = "Available";
     public final static String STATUS_ORDERED = "Ordered";
 
-
+    public String[][] board = new String[6][7]; // empty board
     public int id; 
     public int itemTypeId; 
     public int gameId;
     public String status; 
 
 
-    public BoardDataObject (int id, int itemTypeId, int gameId, String status) {
+    public BoardDataObject (String[][] board, int id, int itemTypeId, int gameId, String status) {
+        this.board = board;
         this.id = id;
         this.itemTypeId = itemTypeId;
         this.gameId = gameId;
@@ -21,17 +22,19 @@ public class BoardDataObject {
     }
 
     //Copy Constructor
-    public BoardDataObject(BoardDataObject item) {
-        this.id = item.id;
-        this.itemTypeId = item.itemTypeId;
-        this.gameId = item.gameId;
-        this.status = item.status;
+    public BoardDataObject(BoardDataObject board) {
+        this.board = board.board;
+        this.id = board.id;
+        this.itemTypeId = board.itemTypeId;
+        this.gameId = board.gameId;
+        this.status = board.status;
     }  
 
-    public BoardDataObject (BoardDomainObject item) {
-        this.id = item.GetId();
-        this.itemTypeId = item.GetItemTypeId();
-        this.gameId = item.GetgameId();
-        this.status = item.GetStatus();
+    public BoardDataObject (BoardDomainObject board) {
+        this.board = board.GetBoard();
+        this.id = board.GetId();
+        this.itemTypeId = board.GetItemTypeId();
+        this.gameId = board.GetgameId();
+        this.status = board.GetStatus();
     }
 }

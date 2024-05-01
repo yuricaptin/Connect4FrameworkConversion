@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import DataAccess.GameDataAccess;
 import DataObjects.GameDataObject;
 import DomainObjects.GameDomainObject;
+import restService.response.CreateGameResponse;
 
 public class GameModel {
 
@@ -30,6 +31,25 @@ public class GameModel {
     
 
     private static void validategame(GameDomainObject game) {
+        
+        try{
+            if(PlayerModel.GetplayerById(game.Getplayer1Id()) == null){
+                throw new Exception ("Player does not exist");
+            }
+
+            if(PlayerModel.GetplayerById(game.Getplayer2Id()) == null){
+                throw new Exception ("Player does not exist");
+            }
+
+            // Game Type ID Valid
+            if(GameTypeModel.GetGameTypeById(game.GetGameTypeId()) == null){
+                throw new Exception ("Game Type does not exist");
+            }
+        } catch (Exception ex) {
+            CreateGameResponse response = new CreateGameResponse(ex.getMessage());
+            System.out.println(ex.getMessage());
+            System.exit(0);
+        }
 
     }
 

@@ -64,7 +64,7 @@ public class PlayerDataAccess {
     public static void Save(PlayerDataObject playerToSave) {
         for( PlayerDataObject player : players) {
             if (player.id == playerToSave.id) {
-                player.name = playerToSave.name;
+                player.username = playerToSave.username;
                 player.gameId = playerToSave.gameId;
             }
         }

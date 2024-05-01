@@ -5,7 +5,7 @@ import DataObjects.GameTypeDataObject;
 
 public class GameTypeDataAccess {
 
-    private static ArrayList<GameTypeDataObject> itemTypes = new ArrayList<GameTypeDataObject>();
+    private static ArrayList<GameTypeDataObject> gameTypes = new ArrayList<GameTypeDataObject>();
     private static int nextId = 0;  
 
     public GameTypeDataAccess() {
@@ -13,8 +13,8 @@ public class GameTypeDataAccess {
     }
 
     private void initialize() {
-        itemTypes.add(new GameTypeDataObject(0, "Thumb Drive"));
-        itemTypes.add(new GameTypeDataObject(1, "Mouse"));
+        gameTypes.add(new GameTypeDataObject(0, "Main Game Mode"));
+        gameTypes.add(new GameTypeDataObject(1, "Secondary Game Mode"));
         nextId = 2;
 
     }
@@ -28,14 +28,14 @@ public class GameTypeDataAccess {
     public static ArrayList<GameTypeDataObject> GetAllItemTypes() {
         ArrayList<GameTypeDataObject> itemTypesList = new ArrayList<GameTypeDataObject>();
         //Create a copy of itemTypes to return.
-        for (GameTypeDataObject itemType: itemTypes) {
+        for (GameTypeDataObject itemType: gameTypes) {
             itemTypesList.add(new GameTypeDataObject(itemType));
         }
         return itemTypesList;
     }
 
     public static GameTypeDataObject GetItemTypeById(int id) {
-        for( GameTypeDataObject itemType : itemTypes) {
+        for( GameTypeDataObject itemType : gameTypes) {
             if (itemType.id == id) {
                 return new GameTypeDataObject(itemType);
             }
@@ -45,7 +45,7 @@ public class GameTypeDataAccess {
 
     public static GameTypeDataObject AddItemType(GameTypeDataObject newItemType) {
         newItemType.id = getNextId(); 
-        itemTypes.add(newItemType);
+        gameTypes.add(newItemType);
         return newItemType;
     }
 
