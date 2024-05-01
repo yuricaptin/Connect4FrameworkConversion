@@ -5,6 +5,7 @@ import DomainObjects.GameDomainObject;
 public class GameDataObject {
     
     public int id;
+    public int boardId;
     public int gameTypeId;
     public int player1Id = -1;
     public int player2Id = -1;

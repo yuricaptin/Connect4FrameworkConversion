@@ -29,4 +29,7 @@ public class RegisterPlayerResponse {
         return this.username;
     }
 
+    public boolean GetSuccess() {
+        return this.success;
+    }
 }

@@ -34,9 +34,11 @@ public class App {
     }
 
     public static void initialize() {
+
+    
         GameTypeDataAccess GameTypeDataAccess = new GameTypeDataAccess();
+        PlayerDataAccess playerDataAccess = new PlayerDataAccess();
         GameDataAccess GameDataAccess = new GameDataAccess();
-        //GameDataAccess GameDataAccess = new GameDataAccess();
         BoardDataAccess BoardDataAccess = new BoardDataAccess();
 
     }

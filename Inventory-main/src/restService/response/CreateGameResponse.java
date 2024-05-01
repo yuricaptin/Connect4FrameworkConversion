@@ -36,7 +36,7 @@ public class CreateGameResponse {
         this.status = null;
         this.winner = 0;
         this.board = null;
-        this.success = true;
+        this.success = false;
         this.errorMessage = null;
     }
 
@@ -70,5 +70,9 @@ public class CreateGameResponse {
 
     public BoardDataObject GetBoard () {
         return this.board;
+    }
+
+    public boolean GetSuccess() {
+        return this.success;
     }
 }

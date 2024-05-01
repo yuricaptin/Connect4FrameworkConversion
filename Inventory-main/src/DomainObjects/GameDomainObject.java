@@ -10,18 +10,21 @@ import Models.PlayerModel;
 public class GameDomainObject {
     
     private int id; 
+    private int boardId;
     private int gameTypeId; 
     private int player1Id;             // <---- How is this being set?
     private int player2Id; 
 
     private PlayerDomainObject player;
 
-    public GameDomainObject (int id, int gameTypeId) {
+    public GameDomainObject (int id, int boardId, int gameTypeId) {
+        this.boardId = boardId;
         this.id = id;
         this.gameTypeId = gameTypeId;
     }
 
     public GameDomainObject (GameDataObject game) {
+        this.boardId = game.boardId;
         this.id = game.id;
         this.gameTypeId = game.gameTypeId;
     }
@@ -36,6 +39,10 @@ public class GameDomainObject {
 
     public int GetId() {
         return this.id;
+    }
+
+    public int GetBoardId() {
+        return this.boardId;
     }
 
     public int GetGameTypeId() {

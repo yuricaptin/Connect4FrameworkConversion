@@ -17,26 +17,11 @@ import restService.response.ItemTypeResponse;
 
 public class GameController {
 
-    // No GetAllItems in Connect 4
-
-    /*
-    public static ArrayList<ItemTypeResponse> getAllItemTypes () {
-        //NOTE: This Method has not been explained in class yet.
-        ArrayList<GameTypeDomainObject> domainList = GameTypeModel.GetAllItemTypes();
-        ArrayList<ItemTypeResponse> responseList  = new ArrayList<ItemTypeResponse>();
-       
-        return responseList;
-
-    }
-    */
-
     public static CreateGameResponse CreateGame (CreateGameRequest request) {
         try {
             int player1Id = request.GetPlayer1Id();
             int player2Id = request.GetPlayer2Id();
             int gameTypeId = request.GetGameTypeId();
-            
-            boolean playerCheck = false;
 
             if(PlayerModel.GetplayerById(player1Id) == null){
                 throw new Exception ("Player does not exist");
@@ -61,8 +46,7 @@ public class GameController {
         }
     }
 
-
-
-
-
+    // public static CreateGameResponse CheckForWinner (CreateGameRequest request) {
+        
+    // }
 }

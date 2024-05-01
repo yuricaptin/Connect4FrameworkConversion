@@ -19,6 +19,9 @@ public class PlayerModel {
 
     public static PlayerDomainObject GetplayerById(int id) {
         PlayerDataObject playerData = PlayerDataAccess.GetplayerById(id);
+        if (playerData == null) {
+            return null;
+        }
         return new PlayerDomainObject(playerData);
     }
 
