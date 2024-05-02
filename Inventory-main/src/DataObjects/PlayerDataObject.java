@@ -1,6 +1,5 @@
 package DataObjects;
 
-import DomainObjects.GameDomainObject;
 import DomainObjects.PlayerDomainObject;
 
 public class PlayerDataObject {
@@ -11,9 +10,10 @@ public class PlayerDataObject {
 
     public int gameId = -1; 
 
-    public PlayerDataObject (int id, String name) {
+    public PlayerDataObject (int id, String name, String password) {
         this.id = id;
         this.username = name;
+        this.password = password;
     }
 
     //Copy Constructor

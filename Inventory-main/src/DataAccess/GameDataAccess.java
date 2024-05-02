@@ -14,8 +14,9 @@ public class GameDataAccess {
 
     private void initialize() {
         games.add(new GameDataObject(0, 1));
-        games.add(new GameDataObject(1, 2));
-        nextId = 2;
+        games.add(new GameDataObject(1, 1));
+        games.add(new GameDataObject(2, 1));
+        nextId = 3;
 
     }
 

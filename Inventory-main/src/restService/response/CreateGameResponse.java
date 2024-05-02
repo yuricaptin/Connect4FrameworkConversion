@@ -37,7 +37,7 @@ public class CreateGameResponse {
         this.winner = 0;
         this.board = null;
         this.success = false;
-        this.errorMessage = null;
+        this.errorMessage = errorMessage;
     }
 
     public int GetGameId () {

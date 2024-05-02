@@ -8,49 +8,49 @@ import DomainObjects.BoardDomainObject;
 
 public class BoardModel {
 
-    public static BoardDomainObject GetItemById(int id) {
-        BoardDataObject itemData = BoardDataAccess.GetItemById(id);
-        return new BoardDomainObject(itemData);
+    public static BoardDomainObject GetBoardById(int id) {
+        BoardDataObject boardData = BoardDataAccess.GetBoardById(id);
+        return new BoardDomainObject(boardData);
     }
 
-    public static BoardDomainObject GetFirstAvailableByItemTypeId(int itemTypeId) {
-        BoardDataObject itemData = BoardDataAccess.GetFirstAvailableByItemTypeId(itemTypeId);
+    public static BoardDomainObject GetFirstAvailableByBoardTypeId(int boardTypeId) {
+        BoardDataObject boardData = BoardDataAccess.GetFirstAvailableByBoardTypeId(boardTypeId);
         
-        if (itemData == null) {
+        if (boardData == null) {
             return null;
         }
 
-        return new BoardDomainObject(itemData);
+        return new BoardDomainObject(boardData);
     }
 
     public static ArrayList<BoardDomainObject> GetAllItems() {
-        ArrayList<BoardDataObject> itemDataList = BoardDataAccess.GetAllItems();
-        return BoardDomainObject.MapList(itemDataList);
+        ArrayList<BoardDataObject> boardDataList = BoardDataAccess.GetAllBoards();
+        return BoardDomainObject.MapList(boardDataList);
     }
 
-    public static ArrayList<BoardDomainObject> GetItemsByItemTypeId(int id) {
-        ArrayList<BoardDataObject> itemDataList = BoardDataAccess.GetItemsByItemTypeId(id );
-        return BoardDomainObject.MapList(itemDataList);
+    public static ArrayList<BoardDomainObject> GetBoardsByBoardTypeId(int id) {
+        ArrayList<BoardDataObject> boardDataList = BoardDataAccess.GetBoardsByBoardTypeId(id );
+        return BoardDomainObject.MapList(boardDataList);
     }
 
-    public static BoardDomainObject AddItem(BoardDomainObject item){
+    public static BoardDomainObject AddItem(BoardDomainObject board){
 
-        validateItem(item);
+        validateItem(board);
 
-        BoardDataObject itemData = new BoardDataObject(item);
-        BoardDataAccess.AddItem(itemData);
-        return new BoardDomainObject(itemData);
+        BoardDataObject boardData = new BoardDataObject(board);
+        BoardDataAccess.AddBoard(boardData);
+        return new BoardDomainObject(boardData);
   
     }
     
 
-    private static void validateItem(BoardDomainObject item) {
+    private static void validateItem(BoardDomainObject board) {
 
     }
 
 
-    public static void Save (BoardDomainObject itemToSave) {
-        BoardDataObject BoardDataObject = new BoardDataObject(itemToSave);
+    public static void Save (BoardDomainObject boardToSave) {
+        BoardDataObject BoardDataObject = new BoardDataObject(boardToSave);
         BoardDataAccess.Save(BoardDataObject);
     }
   

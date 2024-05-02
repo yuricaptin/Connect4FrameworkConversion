@@ -3,7 +3,6 @@ package DomainObjects;
 import java.util.ArrayList;
 
 import DataObjects.GameDataObject;
-import Models.BoardModel;
 import Models.GameModel;
 import Models.PlayerModel;
 
@@ -72,6 +71,10 @@ public class GameDomainObject {
         }
         return this.player;
     }
+
+    // public void SetBoard(int[][] board){
+    //     BoardModel.GetBoardById(this.boardId).SetBoard(board);
+    // }
 
     public void Setplayer1(int player1Id) {
         this.player1Id = player1Id;

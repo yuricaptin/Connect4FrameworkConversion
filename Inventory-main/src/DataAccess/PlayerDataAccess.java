@@ -2,7 +2,6 @@ package DataAccess;
 
 import java.util.ArrayList;
 
-import DataObjects.BoardDataObject;
 import DataObjects.PlayerDataObject;
 
 public class PlayerDataAccess {
@@ -15,9 +14,9 @@ public class PlayerDataAccess {
     }
 
     private void initialize() {
-        players.add(new PlayerDataObject(0, "username1"));
-        players.add(new PlayerDataObject(1, "two"));
-        players.add(new PlayerDataObject(2, "three"));
+        players.add(new PlayerDataObject(0, "username1", null));
+        players.add(new PlayerDataObject(1, "two", null));
+        players.add(new PlayerDataObject(2, "three", null));
         nextId = 3;
     }
 

@@ -4,16 +4,10 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import DataAccess.BoardDataAccess;
 import DataAccess.PlayerDataAccess;
-import DataAccess.PlayerDataAccess;
-import DataObjects.BoardDataObject;
 import DataObjects.PlayerDataObject;
-import DataObjects.PlayerDataObject;
-import DomainObjects.BoardDomainObject;
 import DomainObjects.PlayerDomainObject;
 import restService.response.CreateGameResponse;
-import DomainObjects.PlayerDomainObject;
 
 public class PlayerModel {
 
@@ -34,9 +28,8 @@ public class PlayerModel {
 
         return new PlayerDomainObject(playerData);
     }
-
-
     
+        
 
     public static ArrayList<PlayerDomainObject> GetAllplayers() {
         ArrayList<PlayerDataObject> playerDataList = PlayerDataAccess.GetAllplayers();
@@ -89,7 +82,6 @@ public class PlayerModel {
                 throw new Exception ("Invalid Password.");
             }
             } catch (Exception ex) {
-            CreateGameResponse response = new CreateGameResponse(ex.getMessage());
             System.out.println(ex.getMessage());
             System.exit(0);
         }

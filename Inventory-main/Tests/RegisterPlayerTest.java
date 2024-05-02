@@ -15,7 +15,7 @@ public class RegisterPlayerTest {
     @Before
     public void initialize() {    
         GameTypeDataAccess GameTypeDataAccess = new GameTypeDataAccess();
-        PlayerDataAccess playerDataAccess = new PlayerDataAccess();
+        PlayerDataAccess PlayerDataAccess = new PlayerDataAccess();
         GameDataAccess GameDataAccess = new GameDataAccess();
         BoardDataAccess BoardDataAccess = new BoardDataAccess();
     }

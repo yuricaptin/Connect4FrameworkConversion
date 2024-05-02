@@ -9,7 +9,7 @@ import Models.GameModel;
 
 public class BoardDomainObject {
 
-    public String[][] board = new String[6][7]; // empty board    
+    public int[][] board = new int[6][7]; // empty board    
     private int id; 
     private int gameTypeId;
     private int gameId; 
@@ -18,7 +18,7 @@ public class BoardDomainObject {
     private GameTypeDomainObject gameType; 
     private GameDomainObject game;
 
-    public BoardDomainObject (String[][] board, int id, int itemTypeId, int gameId, String status) {
+    public BoardDomainObject (int[][] board, int id, int itemTypeId, int gameId, String status) {
         this.board = board;
         this.id = id;
         this.gameTypeId = itemTypeId;
@@ -42,7 +42,7 @@ public class BoardDomainObject {
         return itemDomain;
     }
 
-    public String[][] GetBoard() {
+    public int[][] GetBoard() {
         return this.board;
     }
 
@@ -65,7 +65,7 @@ public class BoardDomainObject {
     public GameDomainObject Getgame() {
         //Lazy Load the game
         if (this.game == null) {
-            this.game = GameModel.GetgameById(gameId);
+            this.game = GameModel.GetGameById(gameId);
         }
         return this.game;
     }
@@ -78,6 +78,9 @@ public class BoardDomainObject {
         return this.gameType;
     }
 
+    // public void SetBoard(int[][] board) {
+    //     this.board = board;
+    // }
 
     public void SetStatus(String status) {
         this.status = status;

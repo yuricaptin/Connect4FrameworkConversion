@@ -9,7 +9,7 @@ import restService.response.CreateGameResponse;
 
 public class GameModel {
 
-    public static GameDomainObject GetgameById(int id) {
+    public static GameDomainObject GetGameById(int id) {
         GameDataObject gameData = GameDataAccess.GetgameById(id);
         return new GameDomainObject(gameData);
     }
@@ -46,7 +46,6 @@ public class GameModel {
                 throw new Exception ("Game Type does not exist");
             }
         } catch (Exception ex) {
-            CreateGameResponse response = new CreateGameResponse(ex.getMessage());
             System.out.println(ex.getMessage());
             System.exit(0);
         }

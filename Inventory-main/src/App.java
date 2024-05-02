@@ -2,11 +2,8 @@ import Controller.GameController;
 import Controller.PlayerController;
 import DataAccess.*;
 import DataAccess.GameDataAccess;
-import restService.request.CreateGameRequest;
-import restService.request.RegisterPlayerRequest;
-import restService.response.CreateGameResponse;
-import restService.response.OrderResponse;
-import restService.response.RegisterPlayerResponse;
+import restService.request.*;
+import restService.response.*;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -19,16 +16,8 @@ public class App {
         CreateGameRequest request2 = new CreateGameRequest(1,2,1);
         CreateGameResponse response2 = GameController.CreateGame(request2);
 
-
-        // OrderRequest request = new OrderRequest(1);
-        // OrderResponse response = OrderController.OrderItem(request);
-
-        // OrderRequest request2 = new OrderRequest(1);
-        // OrderResponse response2 = OrderController.OrderItem(request2);
-
-        // OrderRequest request3 = new OrderRequest(1);
-        // OrderResponse response3 = OrderController.OrderItem(request3);
-
+        CheckForWinnerRequest request3 = new CheckForWinnerRequest(1,2,1);
+        CheckForWinnerResponse response3 = GameController.CheckForWinner(request3);
 
         System.out.println("Code is finished");
     }

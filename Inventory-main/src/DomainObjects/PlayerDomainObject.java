@@ -2,7 +2,6 @@ package DomainObjects;
 
 import java.util.ArrayList;
 
-import DataObjects.GameDataObject;
 import DataObjects.PlayerDataObject;
 import Models.GameModel;
 import Models.PlayerModel;
@@ -56,7 +55,7 @@ public class PlayerDomainObject {
     public GameDomainObject Getgame() {
         //Lazy Load the game
         if (this.game == null) {
-            this.game = GameModel.GetgameById(gameId);
+            this.game = GameModel.GetGameById(gameId);
         }
         return this.game;
     }

@@ -1,15 +1,14 @@
 package restService.request;
 
-import DomainObjects.GameDomainObject;
-
 public class CheckForWinnerRequest {
     private int gameId;
     private int playerId;
     private int column;
     
-    public CheckForWinnerRequest (GameDomainObject game) {
-        this.gameId = game.GetId();
-        this.playerId = game.Getplayer1Id(); // update to current turn player
+    public CheckForWinnerRequest (int gameId, int playerId, int column) {
+        this.gameId = gameId;
+        this.playerId = playerId;
+        this.column = column;
     }
 
     public int GetGameId() {

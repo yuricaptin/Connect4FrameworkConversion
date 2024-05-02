@@ -16,6 +16,13 @@ public class GameDataObject {
         //this.playerId = -1;  This is being handled in the initializer above.
     }
 
+    public GameDataObject (int id, int boardId, int gameTypeId) {
+        this.id = id;
+        this.boardId = boardId;
+        this.gameTypeId = id;
+        //this.playerId = -1;  This is being handled in the initializer above.
+    }
+
     //Copy Constructor
     public GameDataObject(GameDataObject game) {
         this.id = game.id;
